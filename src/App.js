@@ -36,7 +36,7 @@ export default function App() {
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
       liveUrl: "https://crave-and-glaze-final.onrender.com",
       codeUrl: "https://github.com/kimani-brian/shikagari",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=500&fit=crop"
+      image: "https://images.unsplash.com/photo-1625649611137-df49dc542f6a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJpcnRoZGF5JTIwY2FrZXxlbnwwfHwwfHx8MA=="
     },
     {
       title: "InstaMart - E-Commerce Platform",
@@ -44,7 +44,7 @@ export default function App() {
       tech: ["Go", "Postgres", "Tailwind", "Javascript"],
       liveUrl: "https://instamart-3vmc.onrender.com",
       codeUrl: "https://github.com/kimani-brian/myshop-continua",
-      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=500&fit=crop"
+      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=500&fit=crop"
     },
     
   ];
