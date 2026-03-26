@@ -51,7 +51,7 @@ export default function App() {
       description: "Full-stack car marketplace platform for the Kenyan market with JWT authentication, role-based access control, admin approval workflows for verified dealers and private sellers, real-time inquiry messaging between buyers and sellers, favourites wishlist, advanced vehicle search and a responsive seller dashboard",
       liveUrl: "https://instamart-3vmc.onrender.com",
       codeUrl: "https://github.com/kimani-brian/shikagari",
-      image: "https://unsplash.com/photos/a-very-nice-looking-car-on-the-street-2WfNQSwP5II"
+      image: "https://unsplash.com/photos/a-very-nice-looking-car-on-the-street-2WfNQSwP5II?w=800&h=500&fit=crop"
     },
     
   ];
