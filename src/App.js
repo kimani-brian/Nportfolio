@@ -30,6 +30,14 @@ export default function App() {
   };
 
   const projects = [
+     {
+      title: "ShikaGari",
+      description: "Full-stack car marketplace platform for the Kenyan market with JWT authentication, role-based access control, admin approval workflows for verified dealers and private sellers, real-time inquiry messaging between buyers and sellers, favourites wishlist, advanced vehicle search and a responsive seller dashboard",
+      tech: ["Go", "Gin", "Next.js", "Postgres", "Rest-api", "Javascript"],
+      liveUrl: "https://instamart-3vmc.onrender.com",
+      codeUrl: "https://github.com/kimani-brian/shikagari",
+      image: "https://unsplash.com/photos/orange-lamborghini-car-oUBjd22gF6w/download?ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyfGZ8MHwxfDB8fHww"
+    },
     {
       title: "Crave & Glaze | Bakery Platform ",
       description: "Full-stack bakery e-commerce platform featuring dynamic product variants, M-Pesa payment integration, admin management, Dockerized deployment, and asynchronous email notifications.",
@@ -46,13 +54,7 @@ export default function App() {
       codeUrl: "https://github.com/kimani-brian/myshop-continua",
       image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=500&fit=crop"
     },
-    {
-      title: "ShikaGari",
-      description: "Full-stack car marketplace platform for the Kenyan market with JWT authentication, role-based access control, admin approval workflows for verified dealers and private sellers, real-time inquiry messaging between buyers and sellers, favourites wishlist, advanced vehicle search and a responsive seller dashboard",
-      liveUrl: "https://instamart-3vmc.onrender.com",
-      codeUrl: "https://github.com/kimani-brian/shikagari",
-      image: "https://unsplash.com/photos/a-very-nice-looking-car-on-the-street-2WfNQSwP5II"
-    },
+   
     
   ];
 
