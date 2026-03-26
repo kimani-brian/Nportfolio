@@ -51,7 +51,7 @@ export default function App() {
       description: "Full-stack car marketplace platform for the Kenyan market with JWT authentication, role-based access control, admin approval workflows for verified dealers and private sellers, real-time inquiry messaging between buyers and sellers, favourites wishlist, advanced vehicle search and a responsive seller dashboard",
       liveUrl: "https://instamart-3vmc.onrender.com",
       codeUrl: "https://github.com/kimani-brian/shikagari",
-      image: "https://unsplash.com/photos/a-very-nice-looking-car-on-the-street-2WfNQSwP5II?w=800&h=500&fit=crop"
+      image: "https://unsplash.com/photos/a-very-nice-looking-car-on-the-street-2WfNQSwP5II"
     },
     
   ];
@@ -200,7 +200,7 @@ export default function App() {
                   <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
                   <p className="text-gray-400 text-sm mb-4 leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map(tech => (
+                    {(Array.isArray(project.tech) ? project.tech : []).map(tech => (
                       <span key={tech} className="px-2 py-1 bg-purple-900/30 text-purple-300 rounded text-xs">
                         {tech}
                       </span>
