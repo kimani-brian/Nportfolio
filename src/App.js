@@ -36,7 +36,7 @@ export default function App() {
       tech: ["Go", "Gin", "Next.js", "Postgres", "Rest-api", "Javascript"],
       liveUrl: "https://instamart-3vmc.onrender.com",
       codeUrl: "https://github.com/kimani-brian/shikagari",
-      image: "https://unsplash.com/photos/orange-lamborghini-car-oUBjd22gF6w"
+      image: "https://images.pexels.com/photos/26954166/pexels-photo-26954166.jpeg"
     },
     {
       title: "Crave & Glaze | Bakery Platform ",
