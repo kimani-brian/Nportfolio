@@ -41,7 +41,7 @@ export default function App() {
     {
       title: "Crave & Glaze | Bakery Platform ",
       description: "Full-stack bakery e-commerce platform featuring dynamic product variants, M-Pesa payment integration, admin management, Dockerized deployment, and asynchronous email notifications.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
+      tech: ["GO", "Gin", "PostGres", "TypeScript", "TailWind"],
       liveUrl: "https://crave-and-glaze-final.onrender.com",
       codeUrl: "https://github.com/kimani-brian/shikagari",
       image: "https://images.unsplash.com/photo-1625649611137-df49dc542f6a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJpcnRoZGF5JTIwY2FrZXxlbnwwfHwwfHx8MA=="
@@ -49,7 +49,7 @@ export default function App() {
     {
       title: "InstaMart - E-Commerce Platform",
       description: "Full-stack e-commerce platform with M-Pesa payment integration, session-based cart management, secure authentication, and Dockerized deployment.",
-      tech: ["Go", "Postgres", "Tailwind", "Javascript"],
+      tech: ["Python", "Postgres", "Tailwind", "Javascript"],
       liveUrl: "https://instamart-3vmc.onrender.com",
       codeUrl: "https://github.com/kimani-brian/myshop-continua",
       image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=500&fit=crop"
