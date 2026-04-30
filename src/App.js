@@ -18,7 +18,9 @@ export default function App() {
   const skills = {
     "Languages": ["Go", "Python", "HTML/CSS", "Django","TailWind"],
     "Databases": ["PostgreSQL", "SQL"],
-    "DevOps & Tools": ["Docker", "Git", "GitHub", "Linux", "Postman"]
+    "DevOps & Tools": ["Docker", "Git", "GitHub", "Linux", "Postman"],
+    "Frameworks & Libraries": ["Gin", "Next.js", "React", "TailWind"],
+    "Authentication & Security": ["JWT", "Role-Based Access Control"],
   };
 
   const education = {
@@ -28,6 +30,21 @@ export default function App() {
     graduation: "Expected Graduation: 2026",
     coursework: ["Object Oriented Programming", "Data Structures and Algorithms", "Database Systems", "Computer Networks", "Web Development", "Artificial Intelligence"]
   };
+
+  const certifications = [
+    {
+      title: "Kubernetes and Cloud Native Essentials ",
+      issuer: "The Linux Foundation",
+      date: "March 2026",
+      certLink: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/aa65df27-5d72-418c-a0b5-1abbe692f1f7-brian-kimani-f03846b8-4c81-40e2-bfb7-c60d59744ddb-certificate.pdf"
+    },
+    {
+      title: "Introduction to Kubernetes",
+      issuer: "The Linux Foundation",
+      date: "April 2026",
+      certLink: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/aa65df27-5d72-418c-a0b5-1abbe692f1f7-brian-kimani-975a7da4-6dc7-4e92-a141-83c20cb8a7a3-certificate.pdf"
+    },
+  ];
 
   const projects = [
      {
@@ -165,21 +182,52 @@ export default function App() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white">Education & Certifications</h2>
           </div>
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-[#1a0f2e] p-8 rounded-lg border border-purple-900/30">
-              <h3 className="text-2xl font-semibold text-white mb-2">{education.university}</h3>
-              <p className="text-purple-300 mb-1">{education.location}</p>
-              <p className="text-lg text-white mb-1">{education.degree}</p>
-              <p className="text-gray-400 mb-4">{education.graduation}</p>
-              <div className="mt-6">
-                <h4 className="text-white font-semibold mb-3">Relevant Coursework:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {education.coursework.map((course, idx) => (
-                    <span key={idx} className="px-3 py-1.5 bg-purple-900/30 text-purple-200 rounded text-sm">
-                      {course}
-                    </span>
-                  ))}
+          
+          {/* Side by side layout */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Education - Left Side */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-6">Education</h3>
+              <div className="bg-[#1a0f2e] p-8 rounded-lg border border-purple-900/30">
+                <h4 className="text-xl font-semibold text-white mb-2">{education.university}</h4>
+                <p className="text-purple-300 mb-1">{education.location}</p>
+                <p className="text-lg text-white mb-1">{education.degree}</p>
+                <p className="text-gray-400 mb-6">{education.graduation}</p>
+                <div>
+                  <h5 className="text-white font-semibold mb-3">Relevant Coursework:</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {education.coursework.map((course, idx) => (
+                      <span key={idx} className="px-3 py-1.5 bg-purple-900/30 text-purple-200 rounded text-sm">
+                        {course}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Certifications - Right Side */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-6">Certifications</h3>
+              <div className="space-y-4">
+                {certifications.map((cert, idx) => (
+                  <div key={idx} className="bg-[#1a0f2e] p-6 rounded-lg border border-purple-900/30 hover:shadow-lg hover:shadow-purple-500/20 transition-all">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h4 className="text-lg font-semibold text-white mb-2">{cert.title}</h4>
+                        <p className="text-purple-300 text-sm mb-2">{cert.issuer}</p>
+                        <p className="text-gray-400 text-sm">{cert.date}</p>
+                      </div>
+                      {cert.certLink && (
+                        <a href={cert.certLink} target="_blank" rel="noopener noreferrer"
+                           className="ml-2 px-3 py-1.5 bg-purple-600 text-white text-xs rounded hover:bg-purple-500 transition-colors flex items-center gap-1 whitespace-nowrap">
+                          <ExternalLink size={12} />
+                          View
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
