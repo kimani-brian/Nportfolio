@@ -44,6 +44,13 @@ export default function App() {
       date: "April 2026",
       certLink: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/aa65df27-5d72-418c-a0b5-1abbe692f1f7-brian-kimani-975a7da4-6dc7-4e92-a141-83c20cb8a7a3-certificate.pdf"
     },
+    {
+      title: " Linux LFS101",
+      issuer: "The Linux Foundation",
+      date: "August 2026",
+      certLink: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/aa65df27-5d72-418c-a0b5-1abbe692f1f7-brian-mumbi-6137fb87-427a-4e44-9a9f-018fafe1d737-certificate.pdf"
+    },
+
   ];
 
   const projects = [
