@@ -1,0 +1,59 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 3351 >>
+stream
+BT /F1 24 Tf 1 0 0 1 0 0 0.1 0.1 0.16 rg 54 738 Td (BRIAN KIMANI) Tj ET
+BT /F1 13 Tf 1 0 0 1 0 0 0.17 0.47 0.77 rg 54 703.6 Td (Software Developer) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.3 0.3 0.35 rg 54 684.0500000000001 Td (Nairobi, Kenya | kimanibrian030@gmail.com | github.com/kimani-brian |) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.3 0.3 0.35 rg 54 656.5500000000001 Td (linkedin.com/in/brian-kimani-344934373) Tj ET
+BT /F1 12 Tf 1 0 0 1 0 0 0.17 0.47 0.77 rg 54 629.0500000000001 Td (SUMMARY) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 609.85 Td (Software developer focused on shipping fast, reliable web applications. I design clean backends in) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 584.35 Td (Go & Python, craft polished interfaces with React & Next.js, and deploy with Docker - backed by a) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 558.85 Td (strong foundation in mathematics and computer science.) Tj ET
+BT /F1 12 Tf 1 0 0 1 0 0 0.17 0.47 0.77 rg 54 533.35 Td (SKILLS) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 514.15 Td (Languages: Go, Python, JavaScript, TypeScript, HTML/CSS) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 497.65 Td (Databases: PostgreSQL, SQL) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 481.15 Td (Frameworks & Libraries: Gin, Next.js, React, Django, Tailwind CSS) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 464.65 Td (DevOps & Tools: Docker, Git, GitHub, Linux, Postman, Kubernetes) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 448.15 Td (Auth & Security: JWT, Role-Based Access Control) Tj ET
+BT /F1 12 Tf 1 0 0 1 0 0 0.17 0.47 0.77 rg 54 422.65 Td (EDUCATION) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 403.45 Td (Kenyatta University, Nairobi - B.Sc. Mathematics & Computer Science \(Expected graduation 2026\)) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 386.95 Td (Coursework: Object Oriented Programming, Data Structures & Algorithms, Database Systems, Computer) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 361.45 Td (Networks, Web Development, Artificial Intelligence) Tj ET
+BT /F1 12 Tf 1 0 0 1 0 0 0.17 0.47 0.77 rg 54 335.95 Td (CERTIFICATIONS) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 316.75 Td (Kubernetes and Cloud Native Essentials - The Linux Foundation \(March 2026\)) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 300.25 Td (Introduction to Kubernetes - The Linux Foundation \(April 2026\)) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 283.75 Td (Linux LFS101 - Introduction to Linux - The Linux Foundation \(August 2026\)) Tj ET
+BT /F1 12 Tf 1 0 0 1 0 0 0.17 0.47 0.77 rg 54 258.25 Td (PROJECTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 239.05 Td (ShikaGari - Full-stack car marketplace for the Kenyan market \(Go, Gin, Next.js, PostgreSQL\)) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 222.55 Td (Crave & Glaze - Bakery e-commerce platform with M-Pesa payments \(Go, Gin, PostgreSQL, TypeScript\)) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 206.05 Td (InstaMart - E-commerce platform with M-Pesa payments \(Python, Django, PostgreSQL\)) Tj ET
+BT /F1 12 Tf 1 0 0 1 0 0 0.17 0.47 0.77 rg 54 180.55 Td (LINKS) Tj ET
+BT /F1 10 Tf 1 0 0 1 0 0 0.15 0.15 0.2 rg 54 161.35000000000002 Td (github.com/kimani-brian | linkedin.com/in/brian-kimani-344934373 | kimanibrian030@gmail.com) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000003644 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+3714
+%%EOF
