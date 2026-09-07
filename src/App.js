@@ -272,11 +272,6 @@ function Navbar() {
 function Hero() {
   return (
     <section id="home" className="relative overflow-hidden pb-16 pt-32 md:pt-40">
-      {/* Subtle grid backdrop (no gradient glows) */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
-      </div>
-
       <div className="container-x relative">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-6xl" data-reveal>
@@ -312,17 +307,17 @@ function Hero() {
 function TechMarquee() {
   const doubled = [...marqueeItems, ...marqueeItems];
   return (
-    <div className="relative border-y border-white/5 bg-surface/40 py-5" data-reveal>
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-ink to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-ink to-transparent" />
-      <div className="flex overflow-hidden">
-        <div className="flex shrink-0 animate-marquee items-center gap-10 pr-10">
-          {doubled.map((item, i) => (
-            <span key={i} className="flex items-center gap-10 whitespace-nowrap font-display text-sm font-medium text-zinc-500">
-              {item}
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-500/70" />
-            </span>
-          ))}
+    <div className="container-x" data-reveal>
+      <div className="relative border-y border-white/5 bg-surface/40 py-5">
+        <div className="flex overflow-hidden">
+          <div className="flex shrink-0 animate-marquee items-center gap-10 pr-10">
+            {doubled.map((item, i) => (
+              <span key={i} className="flex items-center gap-10 whitespace-nowrap font-display text-sm font-medium text-zinc-500">
+                {item}
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-500/70" />
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
