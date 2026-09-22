@@ -74,7 +74,7 @@ const projects = [
   {
     title: 'ShikaGari',
     description:
-      'Full-stack car marketplace for the Kenyan market - JWT auth, role-based admin approval for verified dealers, real-time buyer-seller messaging, favourites, advanced search and a responsive seller dashboard.',
+      'Full stack car marketplace for the Kenyan market JWT auth, role based admin approval for verified dealers, real time buyer seller messaging, favourites, advanced search and a responsive seller dashboard.',
     tech: ['Go', 'Gin', 'Next.js', 'PostgreSQL', 'REST API'],
     // TODO: replace with the real ShikaGari live URL - currently points at the InstaMart URL.
     liveUrl: 'https://instamart-3vmc.onrender.com',
@@ -82,9 +82,9 @@ const projects = [
     image: 'https://images.pexels.com/photos/26954166/pexels-photo-26954166.jpeg',
   },
   {
-    title: 'Crave & Glaze - Bakery Platform',
+    title: 'Crave & Glaze Bakery Platform',
     description:
-      'Full-stack bakery e-commerce platform with dynamic product variants, M-Pesa payment integration, admin management, Dockerized deployment and async email notifications.',
+      'Full stack bakery ecommerce platform with dynamic product variants, MPesa payment integration, admin management, Dockerized deployment and async email notifications.',
     tech: ['Go', 'Gin', 'PostgreSQL', 'TypeScript', 'Tailwind CSS'],
     liveUrl: 'https://crave-and-glaze-final.onrender.com',
     // TODO: replace with the real Crave & Glaze repo - currently points at the ShikaGari repo.
@@ -92,13 +92,13 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1625649611137-df49dc542f6a?fm=jpg&q=60&w=1200&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJpcnRoZGF5JTIwY2FrZXxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
-    title: 'NyumbaPlug — Verified Kenya Rentals',
+    title: 'NyumbaPlug Verified Kenya Rentals',
     description:
-      'Full-stack rentals platform for Kenya — government ID-verified property managers, scam-checked listings, role-based dashboards for tenants/managers/admins, unit & media management, contact reveal for vacant verified units, and report moderation.',
+      'Full stack rentals platform for Kenya property managers, scam checked listings, role based dashboards for tenants/managers/admins, unit & media management, contact reveal for vacant verified units, and report moderation.',
     tech: ['Go', 'Gin', 'React', 'PostgreSQL', 'Tailwind CSS'],
     liveUrl: 'https://nyumbaplug-frontend.vercel.app/',
     codeUrl: 'https://github.com/kimani-brian/nyumbaplug-frontend',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2000&auto=format&fit=crop',
   },
 ];
 
