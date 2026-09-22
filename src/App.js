@@ -4,6 +4,7 @@ import {
   GraduationCap, Award, Code2, Database, Wrench, Layers, ShieldCheck,
   Menu, X, Rocket
 } from 'lucide-react';
+import logo from './bk-logo.png';
 
 /* ================================================================== */
 /*  DATA                                                              */
@@ -177,10 +178,10 @@ function Navbar() {
       <nav className="container-x flex h-16 items-center justify-between">
         <button
           onClick={() => scrollTo('home')}
-          className="font-display text-lg font-bold tracking-tight text-white"
+          className="flex items-center"
           aria-label="Back to top"
         >
-          brian<span className="text-gradient">.</span>kimani
+          <img src={logo} alt="BK logo" className="h-9 w-9 object-contain rounded-md" />
         </button>
 
         <div className="hidden items-center gap-7 md:flex">
