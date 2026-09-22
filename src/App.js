@@ -92,13 +92,13 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1625649611137-df49dc542f6a?fm=jpg&q=60&w=1200&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJpcnRoZGF5JTIwY2FrZXxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
-    title: 'InstaMart - E-Commerce Platform',
+    title: 'NyumbaPlug — Verified Kenya Rentals',
     description:
-      'Full-stack e-commerce platform with M-Pesa payment integration, session-based cart management, secure authentication and Dockerized deployment.',
-    tech: ['Python', 'Django', 'PostgreSQL', 'Tailwind CSS', 'JavaScript'],
-    liveUrl: 'https://instamart-3vmc.onrender.com',
-    codeUrl: 'https://github.com/kimani-brian/myshop-continua',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=750&fit=crop',
+      'Full-stack rentals platform for Kenya — government ID-verified property managers, scam-checked listings, role-based dashboards for tenants/managers/admins, unit & media management, contact reveal for vacant verified units, and report moderation.',
+    tech: ['Go', 'Gin', 'React', 'PostgreSQL', 'Tailwind CSS'],
+    liveUrl: 'https://nyumbaplug-frontend.vercel.app/',
+    codeUrl: 'https://github.com/kimani-brian/nyumbaplug-frontend',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop',
   },
 ];
 
