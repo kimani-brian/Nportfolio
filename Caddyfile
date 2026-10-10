@@ -1,0 +1,9 @@
+# Replace example.com with your real domain.
+# Caddy will automatically get + renew Let's Encrypt HTTPS certs.
+example.com {
+	reverse_proxy portfolio:80
+}
+
+www.example.com {
+	reverse_proxy portfolio:80
+}
