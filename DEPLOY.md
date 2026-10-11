@@ -1,15 +1,15 @@
 # Deploy Guide — Portfolio on VPS with Docker
 
-Live setup: Ubuntu VPS `169.58.118.15`, code in `/opt/portfolio`, plain HTTP on port 80.
+Live setup: Ubuntu VPS `169.58.118.15`, code in `/opt/portfolio`, HTTPS at `https://briankimani.duckdns.org` via Caddy.
 Repo: `https://github.com/kimani-brian/Nportfolio.git`, branch `main`.
 
 ## Architecture
 
 - `Dockerfile` — multi-stage: `node:20-alpine` runs `npm ci && npm run build`, then `nginx:1.27-alpine` serves `build/` on port 80.
 - `nginx.conf` — SPA fallback (`try_files $uri /index.html`), gzip, static caching, security headers.
-- `docker-compose.http.yml` — **current mode**: portfolio only, `80:80`, no domain needed.
-- `docker-compose.yml` + `Caddyfile` — **future domain mode**: Caddy reverse-proxies `portfolio:80` and auto-gets Let's Encrypt certs for `example.com` / `www.example.com`.
-- `.github/workflows/deploy.yml` — on push to `main`, SSHs to VPS and rebuilds via `docker-compose.http.yml`.
+- `docker-compose.yml` + `Caddyfile` — **current mode**: Caddy on `80/443` reverse-proxies `portfolio:80`, auto-gets + renews Let's Encrypt cert for single host `briankimani.duckdns.org` (no `www`).
+- `docker-compose.http.yml` — **rollback / IP-only mode**: portfolio only, `80:80`, kept for fallback to `http://169.58.118.15`.
+- `.github/workflows/deploy.yml` — on push to `main`, SSHs to VPS and rebuilds via `docker compose up -d --build`.
 
 ## 1. VPS prep (Ubuntu 22.04/24.04)
 
@@ -33,25 +33,33 @@ ufw --force enable
 ufw status
 ```
 
-## 2. First deploy (plain HTTP, no domain)
+## 2. First deploy (now HTTPS — HTTP mode kept for rollback)
+
+HTTPS (current):
 
 ```bash
 cd /opt
 git clone https://github.com/kimani-brian/Nportfolio.git portfolio
 cd portfolio
-docker compose -f docker-compose.http.yml up -d --build
-curl -I http://localhost   # expect HTTP/1.1 200 OK
+docker compose up -d --build
+docker compose logs -f caddy   # expect "certificate obtained successfully"
+curl -I https://briankimani.duckdns.org
 ```
 
-Visit: `http://169.58.118.15`
+Visit: `https://briankimani.duckdns.org` (`http://` redirects to `https://`).
 
-Note: an older manual run used `docker run -p 80:80 portfolio:prod`. That was migrated to
-`docker-compose.http.yml` with:
+Plain-HTTP fallback (IP only):
 
 ```bash
-docker rm -f portfolio-site || true
+docker compose down
 docker compose -f docker-compose.http.yml up -d --build
+curl -I http://localhost   # expect HTTP/1.1 200 OK
+# visit http://169.58.118.15
 ```
+
+Note: an older manual run used `docker run -p 80:80 portfolio:prod`. That was migrated to
+`docker-compose.http.yml`, then to Caddy HTTPS. Remove legacy container with
+`docker rm -f portfolio-site || true` if it still exists.
 
 ## 3. Auto-redeploy on `git push`
 
@@ -59,9 +67,14 @@ Workflow: `.github/workflows/deploy.yml` runs on push to `main`:
 
 ```yaml
 git fetch origin main + reset --hard origin/main
-docker compose -f docker-compose.http.yml up -d --build
-curl http://localhost/
+docker compose up -d --build
+curl -H "Host: briankimani.duckdns.org" http://localhost/
+curl https://briankimani.duckdns.org/
 ```
+
+How it works: push → GitHub Actions (`ubuntu-latest`) → `appleboy/ssh-action` SSHs via
+`VPS_HOST` / `VPS_USER` / `VPS_SSH_KEY` → `cd /opt/portfolio` → fetch + hard reset to
+`origin/main` → rebuild Caddy + portfolio → prune images → Host-header check + public HTTPS check.
 
 Setup (done once):
 
@@ -81,62 +94,67 @@ GitHub → repo Settings → Secrets and variables → Actions:
 
 Test: push to `main` or Actions → Deploy to VPS → Re-run.
 
-## 4. Switch to domain + HTTPS (when domain is ready)
+## 4. Domain + HTTPS (live: `briankimani.duckdns.org`, single host, no `www`)
 
-1. DNS at registrar:
+1. DNS (done in DuckDNS dashboard):
 
    ```text
-   A  @    169.58.118.15
-   A  www  169.58.118.15
+   briankimani.duckdns.org  →  169.58.118.15
    ```
 
-   Verify: `dig +short yourdomain.com`
+   Verify: `dig +short briankimani.duckdns.org` → `169.58.118.15`.
+   Note: `www.briankimani.duckdns.org` also resolves (DuckDNS wildcard) but is **not served**
+   — Caddy only has the single-host block below, per your choice.
 
-2. Edit `Caddyfile` (replace `example.com`):
+2. `Caddyfile` (live):
 
    ```caddy
-   yourdomain.com {
-     reverse_proxy portfolio:80
-   }
-   www.yourdomain.com {
+   briankimani.duckdns.org {
      reverse_proxy portfolio:80
    }
    ```
 
-3. Launch HTTPS stack:
+3. Launch / redeploy HTTPS stack:
 
    ```bash
    cd /opt/portfolio
    git pull
    docker compose -f docker-compose.http.yml down || true
+   docker rm -f portfolio-site || true
    docker compose up -d --build
    docker compose logs -f caddy   # waits ~30s for Let's Encrypt
    ```
 
-   Visit: `https://yourdomain.com`
+   Visit: `https://briankimani.duckdns.org`
 
-4. Point the deploy workflow at the HTTPS stack by changing
-   `docker-compose.http.yml` to `docker compose up -d --build` in
-   `.github/workflows/deploy.yml` (or keep HTTP file until switch is verified).
+   To add a second site later, add a second host block + service on the shared `web`
+   network (see §6). Renewal is automatic via `caddy_data` / `caddy_config` volumes.
 
 ## 5. Everyday commands
 
 ```bash
 cd /opt/portfolio
-docker compose -f docker-compose.http.yml ps
-docker compose -f docker-compose.http.yml logs -f
-docker compose -f docker-compose.http.yml up -d --build   # manual redeploy
-git pull && docker compose -f docker-compose.http.yml up -d --build
+docker compose ps
+docker compose logs -f
+docker compose logs -f caddy
+docker compose up -d --build   # manual redeploy
+git pull && docker compose up -d --build
 docker image prune -f
 ss -tlnp | grep -E '80|443'
+dig +short briankimani.duckdns.org
+curl -I http://briankimani.duckdns.org    # expect 308 redirect to https
+curl -I https://briankimani.duckdns.org   # expect 200
 ```
 
-Rollback:
+Rollback (to IP-only HTTP or previous commit):
 
 ```bash
+docker compose down
+docker compose -f docker-compose.http.yml up -d --build   # http://169.58.118.15
+# or
 git log --oneline -5
 git reset --hard <sha>
-docker compose -f docker-compose.http.yml up -d --build
+docker compose up -d --build
 ```
 
 ## Troubleshooting
