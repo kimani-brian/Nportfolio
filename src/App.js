@@ -452,12 +452,8 @@ function Skills() {
 
 function Projects() {
   return (
-    <section id="projects" className="relative py-20 md:py-28">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute right-0 top-1/4 h-72 w-72 rounded-full bg-indigo-500/10 blur-[120px]" />
-        <div className="absolute left-0 top-2/3 h-72 w-72 rounded-full bg-brand-500/10 blur-[120px]" />
-      </div>
-      <div className="container-x relative">
+    <section id="projects" className="bg-ink py-20 md:py-28">
+      <div className="container-x">
         <div className="mb-12" data-reveal>
           <span className="section-eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-brand-400 to-indigo-400" />
