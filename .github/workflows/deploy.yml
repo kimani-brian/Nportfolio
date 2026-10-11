@@ -24,4 +24,18 @@ jobs:
             docker image prune -f
             docker compose ps
             curl -fsS -H "Host: briankimani.duckdns.org" -o /dev/null -w "HTTP:%{http_code}\n" http://localhost/
-            curl -fsS -o /dev/null -w "HTTPS:%{http_code}\n" https://briankimani.duckdns.org/
+            echo "Waiting for Caddy to obtain first cert (up to ~3 min)..."
+            for i in $(seq 1 18); do
+              if curl -fsS -o /dev/null https://briankimani.duckdns.org/; then
+                curl -fsS -o /dev/null -w "HTTPS:%{http_code}\n" https://briankimani.duckdns.org/
+                break
+              fi
+              echo "Attempt $i/18: cert not ready yet, retrying in 10s..."
+              docker compose logs --tail=5 caddy || true
+              sleep 10
+              if [ "$i" = "18" ]; then
+                echo "HTTPS never became ready. Caddy logs:"
+                docker compose logs --tail=50 caddy
+                exit 1
+              fi
+            done
