@@ -20,6 +20,7 @@ jobs:
             cd /opt/portfolio
             git fetch origin main
             git reset --hard origin/main
+            docker network create proxy || true
             docker compose up -d --build
             docker image prune -f
             docker compose ps
@@ -37,5 +38,18 @@ jobs:
                 echo "HTTPS never became ready. Caddy logs:"
                 docker compose logs --tail=50 caddy
                 exit 1
+              fi
+            done
+            echo "Waiting for Crave & Glaze cert (up to ~3 min)..."
+            for i in $(seq 1 18); do
+              if curl -fsS -o /dev/null https://craveandglaze.duckdns.org/; then
+                curl -fsS -o /dev/null -w "CRAVE-HTTPS:%{http_code}\n" https://craveandglaze.duckdns.org/
+                break
+              fi
+              echo "Attempt $i/18: crave cert/upstream not ready yet, retrying in 10s..."
+              sleep 10
+              if [ "$i" = "18" ]; then
+                echo "WARNING: craveandglaze.duckdns.org not ready (app may not be deployed yet). Caddy logs:"
+                docker compose logs --tail=20 caddy || true
               fi
             done

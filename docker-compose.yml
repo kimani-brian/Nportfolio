@@ -21,9 +21,15 @@ services:
       - portfolio
     networks:
       - web
+      - proxy
 
 networks:
   web:
+  # Shared front-door network: second-site containers (e.g. Crave & Glaze
+  # in /opt/crave-and-glaze) join `proxy` so Caddy can route by hostname.
+  # Created on VPS via `docker network create proxy` (workflows do this too).
+  proxy:
+    external: true
 
 volumes:
   caddy_data:

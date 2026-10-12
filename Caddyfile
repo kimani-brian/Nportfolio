@@ -2,3 +2,9 @@
 briankimani.duckdns.org {
 	reverse_proxy portfolio:80
 }
+
+# Crave & Glaze (Go app in /opt/crave-and-glaze, joined to `proxy` network).
+# Single host, no www. Also fixes M-Pesa callbacks (Safaricom needs public HTTPS).
+craveandglaze.duckdns.org {
+	reverse_proxy crave_glaze_app:8080
+}

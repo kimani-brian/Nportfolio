@@ -127,8 +127,24 @@ Test: push to `main` or Actions → Deploy to VPS → Re-run.
 
    Visit: `https://briankimani.duckdns.org`
 
-   To add a second site later, add a second host block + service on the shared `web`
-   network (see §6). Renewal is automatic via `caddy_data` / `caddy_config` volumes.
+    Renewal is automatic via `caddy_data` / `caddy_config` volumes.
+
+## 4b. Second site: Crave & Glaze (`https://craveandglaze.duckdns.org`)
+
+Same VPS, same Caddy front door, separate compose project:
+
+- DNS: `craveandglaze.duckdns.org → 169.58.118.15` (DuckDNS dashboard).
+- Code: `https://github.com/kimani-brian/crave-and-glaze-final.git` cloned to `/opt/crave-and-glaze`
+  (Go monolith `:8080` + Postgres; `.env` scp'd, `chmod 600`, `DB_PORT=5234`,
+  `MPESA_CALLBACK_URL=https://craveandglaze.duckdns.org/api/callback/mpesa`).
+- Shared network: external `proxy` (`docker network create proxy` — both deploy
+  workflows run this first, so it self-heals). Portfolio's Caddy joins `web` + `proxy`;
+  crave `app` joins `default` (db traffic) + `proxy` (Caddy traffic).
+- Routing (`Caddyfile`): `craveandglaze.duckdns.org → reverse_proxy crave_glaze_app:8080`.
+  Direct fallback still live: `http://169.58.118.15:8080`.
+- Deploys are independent per repo; either order is safe (Caddy retries upstreams,
+  HTTPS checks warn-not-fail until both sides are up). First cert takes ~30s–2min.
+- M-Pesa callbacks now work (public HTTPS satisfies Safaricom).
 
 ## 5. Everyday commands
 
